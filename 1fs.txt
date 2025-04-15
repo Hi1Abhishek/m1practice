@@ -13,27 +13,17 @@ to show the car's details.
 
 
 
+q1
+const prompt = require("prompt-sync")()
 
+const constarr=prompt("enter array element for const --> ").split(" ").map(Number)
+let letarr=prompt("enter array element for const --> ").split(" ").map(Number)
 
+constarr[0]=12
+letarr[0]=12
 
-
-1. const vs let with arrays
-javascript
-Copy
-Edit
-const arrConst = [1, 2, 3];
-let arrLet = [4, 5, 6];
-
-arrLet[0] = 10;  // ✅ You can change values in a let array
-console.log(arrLet);  // [10, 5, 6]
-
-// arrConst = [7, 8, 9]; ❌ Error: Assignment to constant variable
-
-// ❗ But you can still modify values in const array:
-arrConst[0] = 99;  // ✅
-console.log(arrConst);  // [99, 2, 3]
-
-// 👉 You can't reassign a const variable, but you can change its contents if it's an object/array
+console.log(constarr)
+console.log(letarr)
 
 
 
@@ -41,28 +31,17 @@ console.log(arrConst);  // [99, 2, 3]
 
 
 
+q2
 
 
-2. Arrow function to add two numbers
-javascript
-Copy
-Edit
-const add = (a, b) => a + b;
-console.log(add(3, 4));  // 7
+const prompt = require("prompt-sync")()
 
+const a=Number(prompt("--> "))
+const b=Number(prompt("--> "))
 
+const add=(a,b)=>a+b;
 
-
-
-
-
-3. Template literals with variables
-javascript
-Copy
-Edit
-let name = "Alice";
-let age = 25;
-console.log(`My name is ${name}, I am ${age} years old.`);
+console.log(add(a,b))
 
 
 
@@ -71,36 +50,32 @@ console.log(`My name is ${name}, I am ${age} years old.`);
 
 
 
+q3
 
+const prompt=require("prompt-sync")()
 
-4. Destructuring an object
-javascript
-Copy
-Edit
-const person = { name: 'John', age: 30 };
-const { name, age } = person;
-console.log(name); // John
-console.log(age);  // 30
+const name=prompt("Enter name:")
+const age=prompt("Enter the age:")
 
+const sentence=`My name is ${name} and, I am ${age} year old.`
 
-
+console.log(sentence)
 
 
 
 
 
 
+q4
+
+const prompt= require("prompt-sync")()
 
 
+const person ={nam:prompt("enter name -> ")||'aja',age:+prompt("enter age -> ")||12}
 
-5. Spread syntax to merge arrays
-javascript
-Copy
-Edit
-const nums1 = [1, 2];
-const nums2 = [3, 4];
-const combined = [...nums1, ...nums2];
-console.log(combined);  // [1, 2, 3, 4]
+const{nam,age}=person
+
+console.log(nam,age)
 
 
 
@@ -108,55 +83,68 @@ console.log(combined);  // [1, 2, 3, 4]
 
 
 
-6. Car class with details method
-javascript
-Copy
-Edit
-class Car {
-  constructor(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-  }
+q5
 
-  showDetails() {
-    console.log(`${this.make} ${this.model} (${this.year})`);
-  }
+const prompt=require("prompt-sync")()
+
+const array1=prompt("Enter the array1:").split(',').map(Number)
+const array2=prompt("Enter the array2:").split(',').map(Number)
+
+const combine=[...array1,...array2]
+console.log("Combined array:",combine)
+
+
+
+
+
+
+
+
+
+q6
+const prompt=require("prompt-sync")()
+
+class car{
+    constructor(Make,Model,Year){
+        this.Make=Make
+        this.Model=Model
+        this.Year=Year
+    }
+    showDetails(){
+        console.log(`Car Details: ${this.Model} ${this.Make} ${this.Year}`)
+    }
+}
+const make=prompt("Enter the make of the car:")
+const model=prompt("Enter the model of the car:")
+const year=prompt("Enter the year of the car:")
+
+const mycar=new car(make,model,year)
+mycar.showDetails()
+
+
+
+
+
+
+
+q7
+
+const prompt = require('prompt-sync')()
+
+const id=Symbol('id')
+
+const name =prompt("Enter name:");
+const age=parseInt(prompt("Enter the age:"));
+const secretId=prompt("Enter the secreat id:");
+
+const person={
+    name,
+    age,
+    [id]:secretId,
 }
 
-const myCar = new Car("Toyota", "Corolla", 2020);
-myCar.showDetails();  // Toyota Corolla (2020)
-
-
-
-
-
-
-
-
-
-
-
-
-7. Symbol as a unique id
-javascript
-Copy
-Edit
-const uniqueId = Symbol('id');
-const user = {
-  name: 'Sam',
-  [uniqueId]: 101
-};
-
-console.log(user[uniqueId]);  // 101
-console.log(user);  // Symbol won't show in for...in or 
-
-
-
-
-
-
-
+console.log(person[id])
+console.log(person)
 
 
 
@@ -191,6 +179,220 @@ number, and returns the result.
 returns the car's information. 
 10) Create a Shape class with a method area(), and extend it into a Rectangle class that overrides 
 the area() method to calculate the area of a rectangle.
+
+
+
+
+
+q1
+
+const prompt=require("prompt-sync")();
+
+function sum(num1,num2){
+    return num1+num2;
+}
+
+const num1=Number(prompt("Enter a num1: "));
+const num2=Number(prompt("Enter a num2: "));
+
+
+console.log("sum is:",sum(num1,num2))
+
+
+
+q2
+
+const prompt=require('prompt-sync')()
+
+function higher(fun,arr){
+    return arr.map(fun)
+}
+const num=(prompt("Enter the number:")).split(",").map(Number)
+const double=higher(x=>x*2,num)
+console.log(double)
+
+
+
+
+q3
+
+const prompt=require('prompt-sync')()
+
+// function mult(a){
+//     return function(b){
+//         return function(c){
+//             return a*b*c
+//         }
+//     }
+// }
+
+//or
+
+const mult=a=>b=>c=>a*b*c;
+
+
+const num1=Number(prompt("Enter a num1: "));
+const num2=Number(prompt("Enter a num2: "));
+const num3=Number(prompt("Enter a num3: "));
+const result=mult(num1)(num2)(num3)
+console.log("The result is:",result)
+
+
+
+q4
+
+const prompt=require("prompt-sync")()
+
+function addElement(arr, element) {
+    return [...arr, element];
+  }
+
+const constarray=prompt("Enterthe array:").split(",").map(Number)
+const newconstarray=addElement(constarray,12)
+console.log("original array:",constarray)
+ console.log("new array:",newconstarray)
+
+
+
+
+
+
+q5
+function getPromise() {
+    return new Promise(resolve => {
+      setTimeout(() => resolve("Success"), 1000);
+    });
+  }
+  
+  getPromise().then(console.log); // After 1 sec: Success
+  
+
+
+
+
+
+
+q6
+async function fetchData() {
+    const data = await new Promise(resolve => {
+      setTimeout(() => resolve("Mock data from API"), 1000);
+    });
+    console.log(data);
+  }
+  fetchData();
+
+
+
+
+q7
+
+const prompt=require("prompt-sync")()
+
+const Input= Number(prompt("Enter a number:"))
+
+
+function applyCallback(num, callback) {
+    return callback(num);
+  }
+  console.log(applyCallback(Input, x => x * 10)); // 50
+
+
+
+q8
+function* fib() {
+    let a = 0, b = 1;
+    yield a;
+    yield b;
+    yield a + b;
+  }
+  const gen = fib();
+  console.log(gen.next().value); // 0
+  console.log(gen.next().value); // 1
+  console.log(gen.next().value); // 1
+  
+  
+
+
+
+
+
+
+q9
+
+const prompt=require("prompt-sync")()
+
+class Car {
+    constructor(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+    }
+  
+    displayInfo() {
+      return `${this.make} ${this.model} (${this.year})`;
+    }
+  }
+
+  const make=prompt("Enter the make of car:")
+  const model=prompt("Enter the model of car:")
+  const year=prompt("Enter the year of car:")
+
+  const myCar = new Car(make,model,year);
+  console.log(myCar.displayInfo()); // Honda Civic (2022)
+  
+
+
+
+
+
+
+
+
+
+
+
+q10
+
+
+const prompt=require("prompt-sync")()
+
+class Shape {
+    area() {
+      return 0;
+    }
+  }
+  
+  class Rectangle extends Shape {
+    constructor(width, height) {
+      super();
+      this.width = width;
+      this.height = height;
+    }
+  
+    area() {
+      return this.width * this.height;
+    }
+  }
+
+  
+
+
+const width=parseFloat(prompt("Enter a width:"))
+const height=parseFloat(prompt("Enter a height:"))
+
+const rect = new Rectangle(width,height);
+console.log(rect.area()); // 20
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -945,3 +1147,76 @@ ws.on('open', function open() {
 ws.on('message', function message(data) {
   console.log("Received from server:", data);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+import React, {useState} from 'react'
+import './App.css'
+
+function App() {
+
+  const [formData, setFormData] = useState({'username': '', 'password':''});
+
+  const handleChange  = (e) => {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]:value})
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert(`Logged in as ${formData.username}`)
+  }
+
+  return <div className='App'>
+    <form onSubmit={handleSubmit} className='login-form'>
+      <h1>Sign In</h1>
+      <div className='component'>
+        <label htmlFor='username'>username:</label>
+        <input type='text' name='username' value={formData.username} onChange={handleChange} className='input' required />
+      </div>
+      <div className='component'>
+        <label htmlFor='password'>password:</label>
+        <input type='password' name='password' value={formData.password} onChange={handleChange} className='input' required />
+      </div>
+      <div>
+        <button type='submit' className='submit'>Submit</button>
+      </div>
+    </form>
+  </div>
+}
+
+export default App;
