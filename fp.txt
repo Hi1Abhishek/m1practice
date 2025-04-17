@@ -1,0 +1,967 @@
+
+Assignment 1: Assignment on Data Structure. 
+Q1. Consider following two lists: 
+a = [1, 2, 2, 3, 5, 8, 13, 21, 34, 55, 89] 
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] 
+Write a python program that returns a list that contains only the elements that are 
+common between the lists (without duplicates). Make sure your program works on two 
+lists of different sizes. 
+Q2. Write a python program to create a list of ‘n’ integers . Find all prime numbers 
+from the above created list and store them in a separate list. Display both list.(Using 
+Recursion) 
+Q5. 
+Q3. Write a program to create a list of ‘n’ integers and find their median. 
+Q4. Write a python program to accept the strings which contain all vowels. 
+a) Convert a tuple into string. Consider following tuple 
+t = (‘c’, ‘o’, ‘m’, ‘p’, ‘u’, ‘t’, ‘e’, ‘r’, ‘ ‘, ‘s’, ‘c’, ‘i’, ‘e’, ’n’, ’c’, ’e’) 
+Expected output: computer science 
+b) Find the occurrences of items in a tuple 
+t = (3, 34, 45, 3, 7, 3, 4, 5, 78, 34, 3,6,77,6) 
+Input : Example – find occurrences of ‘2’ in given tuple 
+
+ 
+Q6. Write a python function to find all duplicates in the list. 
+Q7. Write a python program to create a list, find the largest of n numbers of a List. 
+Write a function to find the largest number. 
+Q8. Write a python function to find all the unique elements of a list. 
+Q9. Write a python program to calculate a square of all elements of a list. Use map() 
+function. 
+Q10.Take the list as an input from the user and find the gcd and lcd. 
+Q11.Write a Python module called “shape”. Write methods for following options in 
+module 
+“shape” 
+a) Calculate area of triangle 
+b) Calculate area of rectangle 
+c) Calculate area of circle 
+d) Calculate area of cone 
+Use the module “shape” in python program and test it
+
+
+give me simple codes short and easy to remember in py
+
+
+ChatGPT said:
+Memory updated
+Here are simple, short, and easy-to-remember Python codes for your Assignment 1: Data Structure:
+
+
+
+
+
+
+
+
+Q1: Common elements between two lists (no duplicates)
+python
+Copy
+Edit
+a = [1, 2, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+common = list(set(a) & set(b))
+print("Common elements:", common)
+
+
+
+
+
+
+Q2: Find primes using recursion
+python
+Copy
+Edit
+def is_prime(n, d=2):
+    if n <= 2:
+        return n == 2
+    if n % d == 0:
+        return False
+    if d * d > n:
+        return True
+    return is_prime(n, d + 1)
+
+n = int(input("Enter number of elements: "))
+lst = [int(input()) for _ in range(n)]
+primes = [x for x in lst if is_prime(x)]
+print("Original list:", lst)
+print("Prime numbers:", primes)
+
+
+
+
+
+
+
+
+Q3: Find median of a list
+python
+Copy
+Edit
+nums = sorted([int(input()) for _ in range(int(input("How many numbers? ")))])
+
+mid = len(nums) // 2
+median = (nums[mid] if len(nums) % 2 != 0 else (nums[mid - 1] + nums[mid]) / 2)
+
+print("Median:", median)
+
+
+
+
+
+
+
+
+Q4a: Convert tuple to string
+python
+Copy
+Edit
+t = ('c', 'o', 'm', 'p', 'u', 't', 'e', 'r', ' ', 's', 'c', 'i', 'e', 'n', 'c', 'e')
+s = ''.join(t)
+print(s)
+
+
+
+
+
+
+
+
+Q4b: Count item occurrences in tuple
+python
+Copy
+Edit
+t = (3, 34, 45, 3, 7, 3, 4, 5, 78, 34, 3, 6, 77, 6)
+num = int(input("Enter number to find: "))
+print(f"Occurrences of {num}:", t.count(num))
+
+
+
+
+
+
+Q4c: Accept strings with all vowels
+python
+Copy
+Edit
+s = input("Enter string: ").lower()
+vowels = {'a', 'e', 'i', 'o', 'u'}
+if vowels <= set(s):
+    print("String contains all vowels")
+else:
+    print("Missing some vowels")
+
+
+
+
+
+Q6: Find duplicates in a list
+python
+Copy
+Edit
+def find_duplicates(lst):
+    return list(set([x for x in lst if lst.count(x) > 1]))
+
+print(find_duplicates([1, 2, 3, 2, 4, 5, 1]))
+
+
+
+
+
+
+
+
+
+Q7: Find largest number using function
+python
+Copy
+Edit
+def find_largest(lst):
+    return max(lst)
+
+lst = [int(input()) for _ in range(int(input("Enter count: ")))]
+print("Largest:", find_largest(lst))
+
+
+
+
+
+
+Q8: Find unique elements
+python
+Copy
+Edit
+def unique_elements(lst):
+    return list(set(lst))
+
+print(unique_elements([1, 2, 2, 3, 4, 5, 1]))
+
+
+
+
+
+
+
+
+
+Q9: Square of list elements using map()
+python
+Copy
+Edit
+lst = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, lst))
+print("Squared list:", squared)
+
+
+
+
+
+
+
+Q10: GCD and LCM of list
+python
+Copy
+Edit
+import math
+from functools import reduce
+
+lst = list(map(int, input("Enter numbers: ").split()))
+
+def gcd_list(l): return reduce(math.gcd, l)
+def lcm(a, b): return a * b // math.gcd(a, b)
+def lcm_list(l): return reduce(lcm, l)
+
+print("GCD:", gcd_list(lst))
+print("LCM:", lcm_list(lst))
+
+
+
+
+
+
+
+
+Q11: shape module and usage
+shape.py
+
+python
+Copy
+Edit
+import math
+
+def triangle(a, b): return 0.5 * a * b
+def rectangle(l, w): return l * w
+def circle(r): return math.pi * r * r
+def cone(r, h): return (1/3) * math.pi * r * r * h
+main.py
+
+python
+Copy
+Edit
+import shape
+
+print("Triangle:", shape.triangle(5, 10))
+print("Rectangle:", shape.rectangle(4, 6))
+print("Circle:", shape.circle(7))
+print("Cone:", shape.cone(3, 5))
+Let me know if you want these in a single file or as separate ones to run easily.
+
+
+
+
+
+
+
+You said:
+Q1. 
+I) Define a lambda function that adds two numbers. 
+II) Implement a lambda function that checks if a number is even. 
+III) Write a lambda function that calculates the factorial of a number. 
+IV) Create a lambda function that finds the maximum element in a list. 
+Date : / / 
+Q2. 
+I) Implement a lambda function that checks if a string is a palindrome. 
+II)Implement a lambda function that sorts a list of strings alphabetically. 
+III)Define a lambda function that computes the area of a triangle. 
+IV)Implement a lambda function that checks if a list is a sublist of another list. 
+Q3.How would you write a curried function to calculate the power of a number? 
+Q4.How would you write a curried function to check if a string is a palindrome? 
+Q5.Create a curried function to calculate the hypotenuse of a right-angled triangle? 
+
+
+ChatGPT said:
+Here are short and simple Python solutions using lambda functions and curried functions, perfect for your assignment.
+
+
+
+✅ Q1. Lambda Functions Basics
+I) Add two numbers
+
+python
+Copy
+Edit
+add = lambda x, y: x + y
+print(add(5, 3))  # Output: 8
+
+
+
+
+II) Check if a number is even
+
+python
+Copy
+Edit
+is_even = lambda x: x % 2 == 0
+print(is_even(4))  # Output: True
+
+
+
+
+III) Factorial using lambda + reduce
+
+python
+Copy
+Edit
+from functools import reduce
+fact = lambda n: reduce(lambda x, y: x * y, range(1, n + 1)) if n > 0 else 1
+print(fact(5))  # Output: 120
+
+
+
+
+
+
+
+
+IV) Find maximum element in a list
+
+python
+Copy
+Edit
+maximum = lambda lst: max(lst)
+print(maximum([1, 5, 3, 9, 2]))  # Output: 9
+
+
+
+
+
+
+✅ Q2. Lambda Functions on Strings and Lists
+I) Check if a string is a palindrome
+
+python
+Copy
+Edit
+is_palindrome = lambda s: s == s[::-1]
+print(is_palindrome("madam"))  # Output: True
+II) Sort a list of strings alphabetically
+
+python
+Copy
+Edit
+sort_strings = lambda lst: sorted(lst)
+print(sort_strings(["banana", "apple", "cherry"]))  # Output: ['apple', 'banana', 'cherry']
+III) Area of triangle
+
+python
+Copy
+Edit
+area_triangle = lambda b, h: 0.5 * b * h
+print(area_triangle(10, 5))  # Output: 25.0
+IV) Check if one list is sublist of another
+
+python
+Copy
+Edit
+is_sublist = lambda small, big: any(small == big[i:i+len(small)] for i in range(len(big)-len(small)+1))
+print(is_sublist([2, 3], [1, 2, 3, 4]))  # Output: True
+
+
+
+
+
+
+✅ Q3. Curried function to calculate power
+python
+Copy
+Edit
+def power(x):
+    return lambda y: x ** y
+
+pow3 = power(2)
+print(pow3(3))  # Output: 8
+
+
+
+
+
+
+
+
+
+
+
+✅ Q4. Curried function to check palindrome
+python
+Copy
+Edit
+def check_palindrome():
+    return lambda s: s == s[::-1]
+
+pal = check_palindrome()
+print(pal("racecar"))  # Output: True
+
+
+
+
+
+
+
+
+✅ Q5. Curried function to calculate hypotenuse
+python
+Copy
+Edit
+import math
+
+def hypotenuse(a):
+    return lambda b: math.sqrt(a**2 + b**2)
+
+hyp = hypotenuse(3)
+print(hyp(4))  # Output: 5.0
+Let me know if you'd like these as a single .py file or with sample inputs from users!
+
+
+
+
+
+
+
+You said:
+Q 1: Matching Temperatures 
+Write a Python function temperature_match that takes a numerical temperature value 
+as input and matches it against the following patterns: 
+I) If the temperature is greater than 30 degrees Celsius, return "Hot". 
+II) If the temperature is between 20 and 30 degrees Celsius (inclusive), return 
+"Moderate". 
+III) If the temperature is less than 20 degrees Celsius, return "Cold". 
+Q2: Matching Dates 
+Define a Python function date_match that takes a string representing a date in the 
+format "YYYY-MM-DD" as input and matches it against the following patterns: 
+I) If the year is a leap year and the month is February, return "Leap year". 
+II) If the date is December 25th, return "Christmas". 
+For any other date, return "Regular day". 
+Q3: Matching Shapes 
+Implement a function 'shape_match that takes a string representing a geometric 
+shape as input and matches it against the following patterns: 
+I) If the shape is "circle", return "Round shape". 
+II) If the shape is "square" or "rectangle", return "Four-sided shape". 
+III) If the shape is "triangle", return "Three- sided shape". 
+For any other shape, return "Unknown shape".
+Q4: 
+Takes a string as input and matches it against the following patterns: 
+I) If the string starts with a vowel, return "Starts with a vowel". If the string ends with 
+a digit, return "Ends with a digit". 
+II) If the string contains the substring "python", return "Contains 'python". If none of 
+the above patterns match, return "No match found" 
+Q5.Write higher-order function to find the mode of a list of numbers? 
+Q6How do you implement a higher-order function to reverse the order of words in a 
+sentence? 
+Q7.What's a Higher order function to calculate the circumference of a circle? 
+Q8.define a higher-order function to apply a function to elements in a triangular 
+number sequence?
+
+
+ChatGPT said:
+Here’s a clean and simple implementation of your assignment questions using Python, with pattern matching, conditionals, and higher-order functions.
+
+✅ Q1: Matching Temperatures
+python
+Copy
+Edit
+def temperature_match(temp):
+    if temp > 30:
+        return "Hot"
+    elif 20 <= temp <= 30:
+        return "Moderate"
+    else:
+        return "Cold"
+
+print(temperature_match(25))  # Output: Moderate
+
+
+
+
+
+
+
+
+
+✅ Q2: Matching Dates
+python
+Copy
+Edit
+def date_match(date_str):
+    from datetime import datetime
+    y, m, d = map(int, date_str.split("-"))
+    
+    def is_leap(year):
+        return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+    if is_leap(y) and m == 2:
+        return "Leap year"
+    elif m == 12 and d == 25:
+        return "Christmas"
+    else:
+        return "Regular day"
+
+print(date_match("2024-02-15"))  # Output: Leap year
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q3: Matching Shapes
+python
+Copy
+Edit
+def shape_match(shape):
+    match shape.lower():
+        case "circle":
+            return "Round shape"
+        case "square" | "rectangle":
+            return "Four-sided shape"
+        case "triangle":
+            return "Three- sided shape"
+        case _:
+            return "Unknown shape"
+
+print(shape_match("Rectangle"))  # Output: Four-sided shape
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q4: Match String Patterns
+python
+Copy
+Edit
+def string_match(s):
+    s = s.lower()
+    if s[0] in 'aeiou':
+        return "Starts with a vowel"
+    elif s[-1].isdigit():
+        return "Ends with a digit"
+    elif "python" in s:
+        return "Contains 'python'"
+    else:
+        return "No match found"
+
+print(string_match("Apple"))      # Starts with a vowel
+print(string_match("hello9"))     # Ends with a digit
+print(string_match("I love python!"))  # Contains 'python'
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q5: Higher-order function to find Mode
+python
+Copy
+Edit
+from collections import Counter
+
+def mode_of_list(lst):
+    return max(Counter(lst).items(), key=lambda x: x[1])[0]
+
+print(mode_of_list([1, 2, 3, 2, 4, 2, 5]))  # Output: 2
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q6: Higher-order function to reverse words in a sentence
+python
+Copy
+Edit
+def reverse_words(sentence):
+    return ' '.join(reversed(sentence.split()))
+
+print(reverse_words("Hello world from Python"))  # Output: Python from world Hello
+
+
+
+
+
+
+
+
+✅ Q7: Higher-order function for circumference of a circle
+python
+Copy
+Edit
+def with_radius(f):
+    def wrapper(r):
+        return f(r)
+    return wrapper
+
+@with_radius
+def circumference(r):
+    return 2 * 3.1416 * r
+
+print(circumference(7))  # Output: 43.9824
+
+
+
+
+
+
+
+
+
+✅ Q8: Apply function to triangular number sequence
+python
+Copy
+Edit
+def apply_to_triangular(n, func):
+    triangular = [i * (i + 1) // 2 for i in range(1, n + 1)]
+    return list(map(func, triangular))
+
+# Example: Square each triangular number
+print(apply_to_triangular(5, lambda x: x**2))  # Output: [1, 9, 36, 100, 225]
+Let me know if you'd like all this combined in one Python file or notebook-style with comments.
+
+
+
+
+
+
+
+You said:
+Q1.Implement the recursive function to calculate the factorial of numbers. 
+Q2.Write Recursive function to delete k-th node from linked list take input from user. 
+Q3.Implement a recursive function to find all unique combinations of numbers in a 
+given array that sum up to a target value.
+
+
+ChatGPT said:
+Here are clear and simple Python implementations for each recursive problem in your assignment:
+
+✅ Q1. Recursive Function for Factorial
+python
+Copy
+Edit
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+num = int(input("Enter a number: "))
+print(f"Factorial of {num} is {factorial(num)}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q2. Recursive Function to Delete k-th Node from Linked List
+python
+Copy
+Edit
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def delete_kth_node(head, k, count=1):
+    if not head:
+        return None
+    if k == 1:
+        return head.next
+    if count == k - 1 and head.next:
+        head.next = head.next.next
+        return head
+    head.next = delete_kth_node(head.next, k, count + 1)
+    return head
+
+def print_list(head):
+    while head:
+        print(head.data, end=" -> ")
+        head = head.next
+    print("None")
+
+# Input from user
+n = int(input("Enter number of nodes: "))
+values = list(map(int, input("Enter values: ").split()))
+k = int(input("Enter position to delete: "))
+
+head = Node(values[0])
+current = head
+for val in values[1:]:
+    current.next = Node(val)
+    current = current.next
+
+print("Original list:")
+print_list(head)
+
+head = delete_kth_node(head, k)
+
+print(f"List after deleting {k}-th node:")
+print_list(head)
+
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q3. Recursive Function to Find Unique Combinations That Sum to Target
+python
+Copy
+Edit
+def find_combinations(arr, target):
+    result = []
+    arr.sort()
+
+    def backtrack(start, path, total):
+        if total == target:
+            result.append(path)
+            return
+        if total > target:
+            return
+        for i in range(start, len(arr)):
+            if i > start and arr[i] == arr[i - 1]:  # Skip duplicates
+                continue
+            backtrack(i + 1, path + [arr[i]], total + arr[i])
+
+    backtrack(0, [], 0)
+    return result
+
+arr = list(map(int, input("Enter list elements: ").split()))
+target = int(input("Enter target sum: "))
+
+combinations = find_combinations(arr, target)
+print("Combinations that sum to target:")
+for combo in combinations:
+    print(combo)
+Let me know if you want explanations for each, or you'd like them saved in a .py file.
+
+
+
+
+
+
+
+You said:
+Assignment 5: Assignment on Generators,Itertool module, HOF filter ,map,reduced. 
+Q1.Implement a JavaScript generator function to generate Fibonacci numbers up to a 
+specified limit. Test your generator by generating the first 10 Fibonacci numbers and 
+printing them. 
+Q2.Write a Python program that uses the itertools module to generate all combinations 
+of a given list of elements. Prompt the user to enter a list of elements, and then print all 
+possible combinations of those elements. 
+Q3.Write a Python program that uses the itertools module to generate all combinations 
+of a given list of elements. Prompt the user to enter a list of elements, and then print all 
+possible combinations of those elements. 
+Q4.Given a list of strings representing names, write a generator function called 
+filter_names that takes a list of names and a substring as parameters and yields only 
+those names from the list that contain the given substring. 
+Q5.Use map to create a new list by changing each number to its square in the numbers 
+list. 
+Q6.Use filter to filter out countries containing six letters and more in the country list. 
+Q7.Use filter to filter out countries starting with an 'E'. 
+Q8.Declare a function called get_string_lists which takes a list as a parameter and then 
+returns a list containing only string items. 
+Q9.Write a Python generator function to generate the first N Fibonacci numbers.
+
+
+ChatGPT said:
+Here’s a simple and clean set of solutions for Assignment 5, covering generators, itertools, and higher-order functions like filter(), map(), and more.
+
+✅ Q1. JavaScript Generator for Fibonacci
+javascript
+Copy
+Edit
+function* fibonacci(limit) {
+  let a = 0, b = 1, count = 0;
+  while (count < limit) {
+    yield a;
+    [a, b] = [b, a + b];
+    count++;
+  }
+}
+
+// Test the generator
+for (let num of fibonacci(10)) {
+  console.log(num);
+}
+
+
+
+
+
+✅ Q2 & Q3. Python Program to Generate All Combinations
+python
+Copy
+Edit
+from itertools import combinations
+
+elements = input("Enter elements separated by space: ").split()
+
+print("All combinations:")
+for r in range(1, len(elements)+1):
+    for combo in combinations(elements, r):
+        print(combo)
+
+
+
+
+
+
+
+✅ Q4. Generator Function to Filter Names by Substring
+python
+Copy
+Edit
+def filter_names(names, substring):
+    for name in names:
+        if substring.lower() in name.lower():
+            yield name
+
+names = ["Alice", "Bob", "Charlie", "David", "Carla"]
+substr = input("Enter substring to filter names: ")
+
+for name in filter_names(names, substr):
+    print(name)
+
+
+
+
+
+
+
+
+
+
+
+✅ Q5. Use map() to Square Numbers
+python
+Copy
+Edit
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+print("Squared numbers:", squared)
+
+
+
+
+
+
+
+
+
+
+
+
+
+✅ Q6. Filter Countries with Six or More Letters
+python
+Copy
+Edit
+countries = ['India', 'Nepal', 'Germany', 'Australia', 'USA', 'Mexico']
+filtered = list(filter(lambda x: len(x) >= 6, countries))
+print("Countries with 6 or more letters:", filtered)
+
+
+
+
+
+
+
+
+✅ Q7. Filter Countries Starting with 'E'
+python
+Copy
+Edit
+countries = ['Ethiopia', 'Egypt', 'India', 'Estonia', 'Brazil']
+starts_with_e = list(filter(lambda c: c.startswith('E'), countries))
+print("Countries starting with 'E':", starts_with_e)
+
+
+
+
+
+
+
+
+
+✅ Q8. Get Only Strings from a List
+python
+Copy
+Edit
+def get_string_lists(lst):
+    return list(filter(lambda x: isinstance(x, str), lst))
+
+mixed = ['hello', 123, True, 'world', 5.5, 'Python']
+print("String items:", get_string_lists(mixed))
+
+
+
+
+
+
+✅ Q9. Python Generator for First N Fibonacci Numbers
+python
+Copy
+Edit
+def fibonacci_gen(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+n = int(input("Enter number of Fibonacci numbers to generate: "))
+for num in fibonacci_gen(n):
+    print(num, end=" ")
+Let me know if you'd like this bundled into a .py file or want the JavaScript code in an HTML page for testing.
